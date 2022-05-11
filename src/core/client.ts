@@ -12,6 +12,10 @@ class IEXClient {
     });
   }
 
+  public getHistoricalPrices = async (symbol: string) => {
+    return this.axios.get(`/stock/${symbol}/chart/1y?chartCloseOnly=true`);
+  };
+
   public getTopMarketCap = async () => {
     return await this.axios.get("/stock/market/list/mostactive");
   };
